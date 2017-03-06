@@ -34,6 +34,7 @@ public class sort{
 			 }
 		 }
 	 	 
+		 //打印排好序的数组
 		 System.out.println("Bubble Sort:"+Arrays.toString(sorted));
 		 
 	}

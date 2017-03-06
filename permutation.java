@@ -19,7 +19,7 @@ public class permutation{
 	 * @param chars char型数组
 	 * @param start 开始索引
 	 */
-	private static int count = 0;
+	private static int count = 0; //分行计数
 	public static void permutate(char[] chars, int start, int lineNum){
 		if(start == chars.length){
 			System.out.print(String.valueOf(chars));
