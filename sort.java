@@ -18,7 +18,7 @@ public class sort{
 			 try { 
 		         sorted[i++] = Integer.parseInt(para);  
 		     } catch (NumberFormatException e) {  
-		         System.out.println("输入非数字,程序退出");
+		         System.out.println("输入非正整数,程序退出");
 		         System.exit(1);
 		     } 
 		 }
@@ -34,7 +34,6 @@ public class sort{
 			 }
 		 }
 	 	 
-		 //打印排好序的数组
 		 System.out.println("Bubble Sort:"+Arrays.toString(sorted));
 		 
 	}
