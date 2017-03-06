@@ -1,8 +1,10 @@
 package edu.develop.homework;
 
-/*
-编写一个程序，计算自然数n的阶乘n!。（提示：可用循环完成）
-*/
+/**
+ * @title 自然数n的阶乘n!
+ * @author 王馨漫
+ */
+
 public class factorial{
 	
 	/**
@@ -36,8 +38,5 @@ public class factorial{
 		     } 
 			 
 		 }
-		 
-		 
-	 	 
 	}
 }
