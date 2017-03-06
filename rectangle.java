@@ -1,3 +1,12 @@
+package edu.develop.homework;
+
+import java.util.Scanner;
+/**
+ * @title 计算矩形面积和周长
+ * @author 王馨漫
+ * 
+ */
+
 /*
 创建一个简单的表示矩形的Rectangle类，满足以下条件：
 
@@ -13,14 +22,54 @@
  输出2个正整数，中间用空格隔开，分别表示矩形的面积和周长，例如：40 26
 */
 public class rectangle{
+	
+	private int height;
+	private int width;
+	
+	public rectangle(int height, int width){
+		this.height = height;
+		this.width = width;
+	}
+	
+	public int getArea(){
+		return this.height * this.width;
+	}
+	
+	public int getPerimeter(){
+		return 2 * (height + width);
+	}
+	
+	
 	public static void main(String[] args){
         
+		System.out.println("请输入整数长和宽，用空格间隔："); 
         //获得长和宽的输入
         Scanner input=new Scanner(System.in); 
-	String LW=input.nextLine();
-                  
- 	//将输入得到的字符串转换为长和宽的数值
-
-        //输出面积和周长 
+        String para=input.nextLine();
+        
+        String[] para_arr = para.split(" ");
+        if(para_arr.length != 2){
+        	System.out.println("请输入两个参数");
+        }
+        else{
+        	try{ 
+        		int height = Integer.parseInt(para_arr[0]); 
+        		int width = Integer.parseInt(para_arr[1]); 
+        		
+        		if(height <= 0 || width <= 0){
+        			System.out.println("请输入正整数");
+        		}
+        		else{
+        			rectangle rec = new rectangle(height, width);
+        			System.out.println(rec.getArea()+" "+rec.getPerimeter());
+//        			System.out.println("面积为："+rec.getArea());
+//        			System.out.println("周长为："+rec.getPerimeter());
+        		}
+        	} catch (NumberFormatException e) {  
+        		System.out.println("请输入整数");
+        	} 
+        	
+        }
+ 
 	}
 }
