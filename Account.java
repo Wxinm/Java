@@ -1,11 +1,14 @@
-package edu.develop.account;
+package edu.develop.accountser;
+
+import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * @title 会计科目类
  * @author 王馨漫
  * 
  */
-public class Account{
+public class Account implements Serializable{
 	
 	private String code;
 	private String name;
@@ -13,12 +16,14 @@ public class Account{
 	private String p_code = "0";
 	//level为0 代表一级科目，以此类推
 	private int level = 0;
+	private ArrayList<Account> childnodes = null;
 	
-	public Account(String code, String name, String p_code, int level){
+	public Account(String code, String name, String p_code, int level, ArrayList<Account> childnodes){
 		this.code = code;
 		this.name = name;
 		this.p_code = p_code;
 		this.level = level;
+		this.setChildnodes(childnodes);
 	}
 	
 	public String getCode() {
@@ -49,10 +54,38 @@ public class Account{
 	public void setLevel(int level) {
 		this.level = level;
 	}
+
+	public ArrayList<Account> getChildnodes() {
+		return childnodes;
+	}
+
+	public void setChildnodes(ArrayList<Account> childnodes) {
+		this.childnodes = childnodes;
+	}
 	
 	public String toString(){
-		return String.format("%-15s%-25s%-10s%d",
-				this.code, this.name, this.p_code, this.level+1);
+		String str = "";
+		
+		str += this.code + "   ";
+		str += this.name + "   ";
+//		str += this.p_code + "   ";
+//		str += this.level + "    ";
+		str +="{";
+		
+		for(int i = 0; i < this.childnodes.size(); i++){
+			str += "[";
+			Account acc = this.childnodes.get(i);
+			str += acc.toString();
+			str += "]";
+			if(i != this.childnodes.size()-1)
+				str += ",";
+		}
+//		for(Account acc : this.childnodes){
+//			str += "["+acc.toString()+"],";
+//		}
+		str +="}";
+		
+		return str;
 	}
 
 }
