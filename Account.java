@@ -63,29 +63,31 @@ public class Account implements Serializable{
 		this.childnodes = childnodes;
 	}
 	
+	@Override
 	public String toString(){
-		String str = "";
-		
-		str += this.code + "   ";
-		str += this.name + "   ";
-//		str += this.p_code + "   ";
-//		str += this.level + "    ";
-		str +="{";
-		
-		for(int i = 0; i < this.childnodes.size(); i++){
-			str += "[";
-			Account acc = this.childnodes.get(i);
-			str += acc.toString();
-			str += "]";
-			if(i != this.childnodes.size()-1)
-				str += ",";
-		}
-//		for(Account acc : this.childnodes){
-//			str += "["+acc.toString()+"],";
-//		}
-		str +="}";
-		
-		return str;
+		return this.code+"-"+this.name;
 	}
+	
+	//用以打印显示树形结构
+//	public String toString(){
+//		String str = "";
+//		
+//		str += this.code + "   ";
+//		str += this.name + "   ";
+//		str +="{";
+//		
+//		for(int i = 0; i < this.childnodes.size(); i++){
+//			str += "[";
+//			Account acc = this.childnodes.get(i);
+//			str += acc.toString();
+//			str += "]";
+//			if(i != this.childnodes.size()-1)
+//				str += ",";
+//		}
+//
+//		str +="}";
+//		
+//		return str;
+//	}
 
 }

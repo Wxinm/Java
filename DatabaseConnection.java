@@ -12,7 +12,7 @@ public class DatabaseConnection {
 		try{
 			Class.forName(DBDRIVER) ;
 			this.conn = DriverManager.getConnection(DBURL);
-			System.out.println("打开数据库连接");
+//			System.out.println("打开数据库连接");
 		}catch(Exception e){
 			throw e ;
 		}
